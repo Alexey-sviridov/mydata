@@ -2,5 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-df = pd.read_excel('./for_decomp_example.xlsx')
-st.dataframe(df)
+uploaded_file = st.file_uploader("Choose a XLSX file", type="xlsx")
+
+if uploaded_file:
+    df = pd.read_excel(uploaded_file)
+
+    st.dataframe(df)
+    st.table(df)
